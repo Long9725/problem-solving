@@ -20,17 +20,17 @@ public class CombinationGenerator<T> implements NumberOfCaseGenerator<T> {
     }
 
     @Override
-    public int calculate(int n, int r) {
-        int[][] memo = new int[n][r];
+    public long calculate(int n, int r) {
+        long[][] memo = new long[n][r];
         return innerCalculate(memo, n, r);
     }
 
     @Override
-    public int calculate(int n) {
+    public long calculate(int n) {
         return 1;
     }
 
-    private int innerCalculate(int[][] memo, int n, int r) {
+    private long innerCalculate(long[][] memo, int n, int r) {
         if (n == r || r == 0) {
             return 1;
         }

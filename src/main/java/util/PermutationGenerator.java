@@ -20,14 +20,14 @@ public class PermutationGenerator<T> implements NumberOfCaseGenerator<T> {
     }
 
     @Override
-    public int calculate(int n, int r) {
-        int[] memoFraction = new int[n];
-        int[] memoMolecule = new int[n - r];
+    public long calculate(int n, int r) {
+        long[] memoFraction = new long[n];
+        long[] memoMolecule = new long[n - r];
         return factorial(memoFraction, n) / factorial(memoMolecule, n - r);
     }
 
     @Override
-    public int calculate(int n) {
+    public long calculate(int n) {
         return 1;
     }
 
@@ -48,7 +48,7 @@ public class PermutationGenerator<T> implements NumberOfCaseGenerator<T> {
         }
     }
 
-    private int factorial(int[] memo, int n) {
+    private long factorial(long[] memo, int n) {
         if (n <= 1) return 1;
         if (memo[n-1] != 0) return memo[n-1];
 
