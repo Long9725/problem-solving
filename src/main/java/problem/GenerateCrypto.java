@@ -3,10 +3,7 @@ package problem;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class GenerateCrypto {
@@ -57,6 +54,9 @@ class Solution {
         }
 
         answers.stream().sorted().forEachOrdered(System.out::println);
+
+        int[][] test = new int[3][3];
+        int[][] newTest = Arrays.stream(test).sorted(Comparator.comparingInt(value -> value[0])).toArray(int[][]::new);
     }
 
     private void dfs(int count, boolean[] visited, String crypto) {

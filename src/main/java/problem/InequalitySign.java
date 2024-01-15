@@ -3,6 +3,7 @@ package problem;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -19,14 +20,13 @@ public class InequalitySign {
             inequalitySigns[i] = nextSt.nextToken().charAt(0);
         }
 
-        Solve solve = new Solve();
+        InequalitySignSolution solution = new InequalitySignSolution();
 
-        solve.solve(inequalitySigns);
+        solution.solve(inequalitySigns);
     }
-
 }
 
-class Solve {
+class InequalitySignSolution {
     List<List<Integer>> allCount = new ArrayList<>();
 
     char[] inequalitySigns;
