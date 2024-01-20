@@ -19,6 +19,18 @@ public class PermutationGenerator<T> implements NumberOfCaseGenerator<T> {
         return generate(list, list.size());
     }
 
+    public List<List<T>> generateDuplicate(List<T> list, int r) {
+        assert (list.size() >= r);
+        List<List<T>> permutations = new ArrayList<>();
+        backtrack(permutations, list, new ArrayList<>(), r);
+        return permutations;
+    }
+
+    public List<List<T>> generateDuplicate(List<T> list) {
+        return generateDuplicate(list, list.size());
+    }
+
+
     @Override
     public long calculate(int n, int r) {
         long[] memoFraction = new long[n];
@@ -47,6 +59,20 @@ public class PermutationGenerator<T> implements NumberOfCaseGenerator<T> {
             }
         }
     }
+
+    private void backtrack(List<List<T>> permutations, List<T> list, List<T> temp, int remain) {
+        if (remain == 0) {
+            permutations.add(new ArrayList<>(temp));
+            return;
+        }
+
+        for (int i = 0; i < list.size(); i++) {
+            temp.add(list.get(i));
+            backtrack(permutations, list, temp, remain - 1);
+            temp.remove(temp.size() - 1);
+        }
+    }
+
 
     private long factorial(long[] memo, int n) {
         if (n <= 1) return 1;
