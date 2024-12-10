@@ -20,9 +20,9 @@ public class GenerateCrypto {
             alphabets[i] = st.nextToken().charAt(0);
         }
 
-        Solution solution = new Solution();
+        PGPCCP2 solution = new PGPCCP2();
 
-        solution.solve(alphabets, l, c);
+        // solution.solve(alphabets, l, c);
     }
 }
 

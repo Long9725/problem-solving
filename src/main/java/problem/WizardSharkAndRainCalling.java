@@ -148,7 +148,6 @@ class Coordinate {
             x = nextX;
         }
 
-
         if (nextY < 0) {
             y = n + nextY;
         } else {
@@ -156,6 +155,9 @@ class Coordinate {
         }
     }
 
+    /**
+     * 조건 1. 벽 밖을 넘을 수 없다.
+     */
     public boolean isSafeArea(int n) {
         if (x < 0 || x >= n) {
             return false;
